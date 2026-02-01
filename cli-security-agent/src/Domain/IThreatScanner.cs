@@ -1,10 +1,8 @@
 using CliSecurityAgent.Domain.Entities;
-using System.Collections.Generic;
 
-namespace CliSecurityAgent.Domain.Interfaces
+namespace CliSecurityAgent.Domain;
+
+public interface IThreatScanner
 {
-    public interface IThreatScanner
-    {
-        List<Threat> Scan();
-    }
+    IEnumerable<Threat> Scan();
 }

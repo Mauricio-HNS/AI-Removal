@@ -1,20 +1,16 @@
-using CliSecurityAgent.Domain.Entities;
-using CliSecurityAgent.Domain.Interfaces;
-using CliSecurityAgent.Domain.Enums;
+using System;
 using System.Collections.Generic;
+using CliSecurityAgent.Domain.Entities; // <--- ESSA LINHA É ESSENCIAL
 
 namespace CliSecurityAgent.Infrastructure.Detection
 {
-    public class ProcessScanner : IThreatScanner
+    public class ProcessScanner
     {
-        public List<Threat> Scan()
+        public IEnumerable<Threat> Scan()
         {
-            // Simulação de scan
-            return new List<Threat>
-            {
-                new Threat { Name = "BadBot.exe", Path = "/usr/bin/BadBot.exe", Level = CliSecurityAgent.Domain.Entities.ThreatLevel.High },
-                new Threat { Name = "UnknownProcess", Path = "/tmp/unknown", Level = CliSecurityAgent.Domain.Entities.ThreatLevel.Medium }
-            };
+            // implementação de scan
+            return new List<Threat>();
         }
     }
 }
+

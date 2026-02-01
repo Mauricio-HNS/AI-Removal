@@ -1,8 +1,7 @@
-using CliSecurityAgent.Application.Services;
-using CliSecurityAgent.Domain.Entities;
-using CliSecurityAgent.Infrastructure.Detection;
 using System;
-using System.Collections.Generic;
+using System.Linq;
+using CliSecurityAgent.Application.Services;
+using CliSecurityAgent.Application.DTOs;
 
 namespace CliSecurityAgent.Presentation.CLI
 {
@@ -12,30 +11,52 @@ namespace CliSecurityAgent.Presentation.CLI
 
         public CliHandler()
         {
-            _service = new ThreatService(new ProcessScanner());
+            _service = new ThreatService();
         }
 
         public void RunScan()
         {
-            List<Threat> threats = _service.ScanThreats();
+            var threats = _service.ScanThreats();
+
+            if (!threats.Any())
+            {
+                Console.WriteLine("No threats found.");
+                return;
+            }
+
+            Console.WriteLine("Threats detected:");
+            int index = 1;
+            foreach (var t in threats)
+            {
+                Console.WriteLine($"{index}. [{t.Level}] {t.Name} at {t.Path}");
+                index++;
+            }
 
             foreach (var t in threats)
             {
-                Console.WriteLine($"Found threat: {t.Name} at {t.Path} - Level: {t.Level}");
-                
-                Console.Write("Block it? (y/n): ");
-                if (Console.ReadLine()?.ToLower() == "y")
-                {
-                    _service.BlockThreat(t);
-                }
+                Console.WriteLine($"\nAction for {t.Name} (Level: {t.Level})?");
+                Console.WriteLine("1 - Block only");
+                Console.WriteLine("2 - Remove");
+                Console.WriteLine("3 - Skip");
 
-                Console.Write("Remove it? (y/n): ");
-                if (Console.ReadLine()?.ToLower() == "y")
+                var input = Console.ReadLine();
+                switch (input)
                 {
-                    _service.RemoveThreat(t);
+                    case "1":
+                        if (_service.BlockThreat(t.Name))
+                            Console.WriteLine($"{t.Name} blocked successfully.");
+                        break;
+                    case "2":
+                        if (_service.RemoveThreat(t.Name))
+                            Console.WriteLine($"{t.Name} removed successfully.");
+                        break;
+                    case "3":
+                        Console.WriteLine($"{t.Name} skipped.");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input. Skipping...");
+                        break;
                 }
-
-                Console.WriteLine();
             }
         }
     }

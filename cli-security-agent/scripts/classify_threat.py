@@ -1,7 +1,12 @@
-# Script stub para classificar ameaças
-def classify(name):
-    print(f"Classifying {name}...")
-    return "Medium"
+import random
+
+def classify(file_name):
+    # Simula classificação de ameaça
+    types = ["Bot", "Spyware", "Adware", "Unknown"]
+    return random.choice(types)
 
 if __name__ == "__main__":
-    classify("BadBot.exe")
+    import sys
+    name = sys.argv[1] if len(sys.argv) > 1 else "UnknownFile.exe"
+    result = classify(name)
+    print(f"Threat type: {result}")

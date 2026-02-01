@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mauriciohenrique/Projetos/cli-security-agent/cli-security-agent.csproj": {}
+    "/Users/mauriciohenrique/Projects/AI-Removal/cli-security-agent/cli-security-agent.csproj": {}
   },
   "projects": {
-    "/Users/mauriciohenrique/Projetos/cli-security-agent/cli-security-agent.csproj": {
+    "/Users/mauriciohenrique/Projects/AI-Removal/cli-security-agent/cli-security-agent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mauriciohenrique/Projetos/cli-security-agent/cli-security-agent.csproj",
+        "projectUniqueName": "/Users/mauriciohenrique/Projects/AI-Removal/cli-security-agent/cli-security-agent.csproj",
         "projectName": "cli-security-agent",
-        "projectPath": "/Users/mauriciohenrique/Projetos/cli-security-agent/cli-security-agent.csproj",
+        "projectPath": "/Users/mauriciohenrique/Projects/AI-Removal/cli-security-agent/cli-security-agent.csproj",
         "packagesPath": "/Users/mauriciohenrique/.nuget/packages/",
-        "outputPath": "/Users/mauriciohenrique/Projetos/cli-security-agent/obj/",
+        "outputPath": "/Users/mauriciohenrique/Projects/AI-Removal/cli-security-agent/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/mauriciohenrique/.nuget/NuGet/NuGet.Config"

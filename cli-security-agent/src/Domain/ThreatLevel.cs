@@ -1,7 +1,8 @@
-namespace CliSecurityAgent.Domain.Enums
+namespace CliSecurityAgent.Domain
 {
     public enum ThreatLevel
     {
+        Unknown,
         Low,
         Medium,
         High,

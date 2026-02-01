@@ -1,14 +1,14 @@
-using CliSecurityAgent.Domain.Entities;
-using System;
+using CliSecurityAgent.Domain;
 
 namespace CliSecurityAgent.Infrastructure.Removal
 {
     public class ThreatRemover
     {
-        public void Remove(Threat threat)
+        public bool Remove(string name)
         {
-            threat.IsRemoved = true;
-            Console.WriteLine($"Removed: {threat.Name}");
+            // Simulação de remoção
+            Console.WriteLine($"[SIMULATION] Removing {name}...");
+            return true;
         }
     }
 }

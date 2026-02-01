@@ -1,70 +1,157 @@
-body {
-    background: #0f1220;
-    color: #eaeaff;
-    font-family: Arial, sans-serif;
+/* RESET BÁSICO */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* BASE */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* HEADER */
 header {
-    padding: 20px;
-    background: #161a35;
     text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #1f1f1f;
 }
 
+header h1 {
+    color: #ff002b; /* vermelho sangue */
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+header p {
+    color: #ffd400; /* amarelo alerta */
+    font-size: 0.9rem;
+    margin-top: 6px;
+}
+
+/* MAIN */
+main {
+    padding: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* BOTÕES */
 button {
-    margin: 30px auto;
-    display: block;
-    padding: 15px 40px;
-    font-size: 16px;
-    background: #00b4ff;
-    border: none;
-    color: #000;
+    padding: 10px 18px;
     border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-button:hover {
-    background: #0090cc;
+#scanBtn {
+    background: #00ff88;
+    color: #000;
 }
 
-.hidden {
-    display: none;
+#scanBtn:hover {
+    filter: brightness(1.1);
 }
 
+button.block {
+    background: #ffd400; /* faixa de pedestre */
+    color: #000;
+}
+
+button.remove {
+    background: #ff002b;
+    color: #fff;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+/* STATUS SCAN */
 #scanStatus {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
+#scanStatus p {
+    margin-top: 10px;
+    color: #ffd400;
+    font-weight: bold;
+}
+
+/* LOADER */
 .loader {
-    width: 50px;
-    height: 50px;
-    border: 6px solid #333;
-    border-top: 6px solid #00b4ff;
+    border: 6px solid #1f1f1f;
+    border-top: 6px solid #ff002b;
     border-radius: 50%;
+    width: 60px;
+    height: 60px;
     animation: spin 1s linear infinite;
-    margin: 0 auto 15px;
+    margin: auto;
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
 }
 
+/* RESULTADOS */
+#results {
+    margin-top: 30px;
+}
+
+#results h2 {
+    color: #00ff88;
+    margin-bottom: 12px;
+}
+
+/* TABELA */
 table {
-    width: 90%;
-    margin: 30px auto;
+    width: 100%;
     border-collapse: collapse;
+    background: #0e0e0e;
+    border: 1px solid #1f1f1f;
 }
 
-th, td {
+thead th {
+    background: #111;
+    color: #ffd400;
     padding: 12px;
-    border: 1px solid #333;
+    text-align: left;
+    font-size: 0.9rem;
 }
 
-th {
-    background: #1f244a;
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #1f1f1f;
+    font-size: 0.9rem;
 }
 
-tr.high { background: #ff4d4d; }
-tr.medium { background: #ffb84d; color: #000; }
-tr.low { background: #4dff88; color: #000; }
+/* LINHAS POR NÍVEL */
+tr.high {
+    background: rgba(255, 0, 43, 0.35);
+}
+
+tr.medium {
+    background: rgba(255, 212, 0, 0.35);
+}
+
+tr.low {
+    background: rgba(0, 255, 136, 0.25);
+}
+
+/* HOVER */
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* UTIL */
+.hidden {
+    display: none;
+}

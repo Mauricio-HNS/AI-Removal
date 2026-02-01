@@ -1,14 +1,14 @@
-using CliSecurityAgent.Domain.Entities;
-using System;
+using CliSecurityAgent.Domain;
 
 namespace CliSecurityAgent.Infrastructure.Blocking
 {
     public class FirewallBlocker
     {
-        public void Block(Threat threat)
+        public bool Block(string name)
         {
-            threat.IsBlocked = true;
-            Console.WriteLine($"[FIREWALL BLOCKED] {threat.Name}");
+            // Simulação de bloqueio
+            Console.WriteLine($"[SIMULATION] Blocking {name} in firewall...");
+            return true;
         }
     }
 }
