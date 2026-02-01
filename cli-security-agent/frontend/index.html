@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CLI Security Agent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>CLI Security Agent</h1>
+    <p>System Threat Scanner</p>
+</header>
+
+<main>
+    <button id="scanBtn">Start Scan</button>
+
+    <div id="scanStatus" class="hidden">
+        <div class="loader"></div>
+        <p>Scanning system for threats...</p>
+    </div>
+
+    <section id="results" class="hidden">
+        <h2>Detected Threats</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Path</th>
+                    <th>Level</th>
+                    <th>Blocked</th>
+                    <th>Removed</th>
+                </tr>
+            </thead>
+            <tbody id="threatsTable"></tbody>
+        </table>
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
